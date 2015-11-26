@@ -1,0 +1,9 @@
+{
+    "parent": "minecraft:block/grass",
+    "textures": {
+        "top": "landminemod:blocks/land_mine_top",
+        "bottom": "landminemod:blocks/land_mine",
+        "side": "landminemod:blocks/land_mine",
+        "overlay": "minecraft:blocks/grass_side_overlay"
+    }
+}
