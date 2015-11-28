@@ -31,7 +31,6 @@ public class LandMineMod
 	@SidedProxy(clientSide="com.schulace.landminemod.proxy.ClientProxy", serverSide="com.schulace.landminemod.proxy.ServerProxy")
 	public static CommonProxy proxy;
 	public static CreativeTabs tabMines = new CreativeTabMines("Mines");
-	
 	@EventHandler
 	public void PreInit(FMLPreInitializationEvent event)
 	{
@@ -40,18 +39,15 @@ public class LandMineMod
 		LandMineModItems.initItems();
 		LandMineModItems.registerItems();
 	}
-	
 	@EventHandler
 	public void Init (FMLInitializationEvent event)
 	{
 		proxy.registerRenders();
 		RecipeHelper.registerRecipes();
 	}
-	
 	@EventHandler
 	public void PostInit(FMLPostInitializationEvent event)
 	{
 		
 	}
-
 }
