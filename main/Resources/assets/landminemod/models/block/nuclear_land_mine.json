@@ -1,0 +1,11 @@
+{
+    "parent": "block/cube",
+    "textures": {
+        "up": "landminemod:blocks/land_mine_top",
+        "down": "landminemod:blocks/land_mine",
+        "north": "landminemod:blocks/land_mine",
+        "east": "landminemod:blocks/land_mine",
+        "west": "landminemod:blocks/land_mine",
+        "south": "landminemod:blocks/land_mine"
+    }
+}

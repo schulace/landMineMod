@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=north": { "model": "landminemod:facing_block" },
+        "facing=south": { "model": "landminemod:facing_block", "y": 180 },
+        "facing=west":  { "model": "landminemod:facing_block", "y": 270 },
+        "facing=east":  { "model": "landminemod:facing_block", "y": 90 }
+    }
+}

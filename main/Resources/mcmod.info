@@ -1,0 +1,16 @@
+[
+{
+  "modid": "landminemod",
+  "name": "schulace's mod",
+  "description": "testing stuff i guess",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Schuler"],
+  "credits": "myself",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

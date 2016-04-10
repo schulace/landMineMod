@@ -1,0 +1,5 @@
+{
+    "variants": {
+        "normal": { "model": "landminemod:land_mine" }
+    }
+}
