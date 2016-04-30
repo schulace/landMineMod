@@ -4,4 +4,6 @@ tile.land_mine.name=generic mine
 tile.nuclear_land_mine.name=dont use this pls
 tile.land_mine_placer.name=place 3x3 patch of explosive awesomeness
 tile.jump_pad.name=BOING!
-tile.quicksand.name-don't walk on me
+tile.quicksand.name=don't walk on me
+tile.potion_block.name=Click me with a coordinate tag!
+tile.facing_block.name=WIP

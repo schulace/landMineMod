@@ -8,6 +8,7 @@ import net.minecraft.command.ICommandManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityBoat;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatComponentText;
@@ -35,17 +36,22 @@ public class ExplodingJumpPad extends Block
 	{
 		float xVel = -1* MathHelper.sin(entity.rotationYaw * (float)Math.PI / 180.0F);
         float zVel = MathHelper.cos(entity.rotationYaw * (float)Math.PI / 180.0F);
-		ICommandManager manager = MinecraftServer.getServer().getCommandManager();
-		manager.executeCommand(new EntityBoat(worldIn), "/effect @p 11 6 5");
-		manager.executeCommand(new EntityBoat(worldIn), "/effect @p 12 6 5");
-		entity.setVelocity(intensity* xVel, intensity/3, intensity*zVel);
-		entity.setFire(3);
-//		int counter = 0;
-//		while(entity.isAirBorne)
-//		{
-//			counter += 1;
-//		}
-		entity.addChatMessage(new ChatComponentText("launch successful"));
+//		ICommandManager manager = MinecraftServer.getServer().getCommandManager();
+//		manager.executeCommand(new EntityBoat(worldIn), "/effect @p 11 6 5");
+//		manager.executeCommand(new EntityBoat(worldIn), "/effect @p 12 6 5");
+		
+		if(entity instanceof EntityLivingBase)
+		{
+			EntityLivingBase ent = (EntityLivingBase)entity;
+			ent.setVelocity(intensity* xVel, intensity/3, intensity*zVel);
+			ent.addPotionEffect(new PotionEffect(11, 100, 5,false,false));
+			ent.addPotionEffect(new PotionEffect(12,100,5,false,false));
+			ent.setFire(3);
+			if (!worldIn.isRemote)
+			{
+				ent.addChatMessage(new ChatComponentText("launch successful"));
+			}
+		}
 
 	}
 	
