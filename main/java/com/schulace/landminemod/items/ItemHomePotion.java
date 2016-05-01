@@ -38,7 +38,10 @@ public class ItemHomePotion extends Item
 				String s1 = "" + itemStackIn.getTagCompound().getInteger("usesLeft");
 				int newUsesLeft = Integer.parseInt(s1) - 1;
 				tempTag.setInteger("usesLeft", newUsesLeft);
-				playerIn.addChatMessage(new ChatComponentText(s1 + "Uses left"));
+				if(!worldIn.isRemote)
+				{
+					playerIn.addChatMessage(new ChatComponentText(s1 + "Uses left"));
+				}
 				itemStackIn.setTagCompound(tempTag);
 				itemStackIn.setStackDisplayName(StackName);
 			}
