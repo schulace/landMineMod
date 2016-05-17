@@ -6,6 +6,7 @@ import com.schulace.landminemod.init.CreativeTabMines;
 import com.schulace.landminemod.init.LandMineModBlocks;
 import com.schulace.landminemod.init.LandMineModItems;
 import com.schulace.landminemod.proxy.CommonProxy;
+import com.schulace.landminemod.tileEntity.BookshelfTileEntity;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
@@ -38,6 +39,7 @@ public class LandMineMod
 		LandMineModBlocks.registerBlocks();
 		LandMineModItems.initItems();
 		LandMineModItems.registerItems();
+		GameRegistry.registerTileEntity(BookshelfTileEntity.class, "TEbookshelf");
 	}
 	@EventHandler
 	public void Init (FMLInitializationEvent event)

@@ -1,7 +1,9 @@
 package com.schulace.landminemod.tileEntity;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.inventory.IInventory;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ChatComponentText;
@@ -9,16 +11,12 @@ import net.minecraft.util.IChatComponent;
 
 public class BookshelfTileEntity extends TileEntity implements IInventory
 {
-	private ItemStack[] inventory;
+	private ItemStack[] inventory = new ItemStack[54];
 	
-	public BookshelfTileEntity()
-	{
-		
-	}
 
 	@Override
 	public String getName() {
-		return "bookshelf";
+		return "TEbookshelf";
 	}
 
 	@Override
@@ -34,18 +32,20 @@ public class BookshelfTileEntity extends TileEntity implements IInventory
 	}
 
 	@Override
-	public int getSizeInventory() {
-		return 9;
+	public int getSizeInventory()
+	{
+		return 54;
 	}
 
 	@Override
-	public ItemStack getStackInSlot(int index) {
-		
+	public ItemStack getStackInSlot(int index)
+	{
 		return inventory[index];
 	}
 
 	@Override
-	public ItemStack decrStackSize(int index, int count) {
+	public ItemStack decrStackSize(int index, int count)
+	{
 		ItemStack stack = getStackInSlot(index);
 		if(stack != null)
 		{
@@ -96,9 +96,14 @@ public class BookshelfTileEntity extends TileEntity implements IInventory
 	}
 
 	@Override
-	public boolean isItemValidForSlot(int index, ItemStack stack) {
-		// TODO come back and figure it out so only books
-		return true;
+	public boolean isItemValidForSlot(int index, ItemStack stack)
+	{
+		Item itm = stack.getItem();
+		if(itm instanceof net.minecraft.item.ItemBook || itm instanceof net.minecraft.item.ItemWritableBook || itm instanceof net.minecraft.item.ItemEnchantedBook || itm instanceof net.minecraft.item.ItemEditableBook)
+		{
+			return true;
+		}
+		return false;
 	}
 
 	@Override

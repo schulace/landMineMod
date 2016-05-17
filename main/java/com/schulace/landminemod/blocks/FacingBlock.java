@@ -1,6 +1,8 @@
 package com.schulace.landminemod.blocks;
 
 import com.schulace.landminemod.LandMineMod;
+import com.schulace.landminemod.helpers.GUIid;
+import com.schulace.landminemod.tileEntity.BookshelfTileEntity;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
@@ -19,7 +21,7 @@ import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 
-public class FacingBlock extends Block
+public class FacingBlock extends BlockContainer
 {
 	
 	//constructor
@@ -67,20 +69,20 @@ public class FacingBlock extends Block
 	@Override
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumFacing side, float hitX, float hitY, float hitZ)
 	{
-		try
-		{
-			ItemStack stackIn = playerIn.inventory.getCurrentItem();
-			if(stackIn.getItem().getUnlocalizedName().substring(5).equals("book"))
-			{
-				stackIn.stackSize --;
-			}
-		}
-		catch(Exception e)
-		{
-			
-		}
-		
-		return false;
+		playerIn.openGui(LandMineMod.instance, GUIid.FACTORY_BASED_ID, worldIn, (int)hitX, (int)hitY, (int)hitZ);
+		return true;
+	}
+	
+	@Override
+	public int getRenderType()
+	{
+		return 3;
+	}
+
+	@Override
+	public TileEntity createNewTileEntity(World worldIn, int meta)
+	{
+		return new BookshelfTileEntity();
 	}
 
 	

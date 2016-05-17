@@ -8,6 +8,7 @@ import net.minecraft.command.ICommandManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityBoat;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.BlockPos;
@@ -40,9 +41,9 @@ public class ExplodingJumpPad extends Block
 //		manager.executeCommand(new EntityBoat(worldIn), "/effect @p 11 6 5");
 //		manager.executeCommand(new EntityBoat(worldIn), "/effect @p 12 6 5");
 		
-		if(entity instanceof EntityLivingBase)
+		if(entity instanceof EntityPlayer)
 		{
-			EntityLivingBase ent = (EntityLivingBase)entity;
+			EntityPlayer ent = (EntityPlayer)entity;
 			ent.setVelocity(intensity* xVel, intensity/3, intensity*zVel);
 			ent.addPotionEffect(new PotionEffect(11, 100, 5,false,false));
 			ent.addPotionEffect(new PotionEffect(12,100,5,false,false));
